@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using ASP.NET_CRUD.Data;
+﻿using ASP.NET_CRUD.Data;
 using ASP.NET_CRUD.Models;
+using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 
 namespace ASP.NET_CRUD.Controllers
 {
@@ -28,7 +25,7 @@ namespace ASP.NET_CRUD.Controllers
         // GET - CREATE
         public IActionResult Create()
         {
-           
+
             return View();
         }
 
