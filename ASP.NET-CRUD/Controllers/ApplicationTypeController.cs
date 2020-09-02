@@ -8,11 +8,11 @@ using ASP.NET_CRUD.Models;
 
 namespace ASP.NET_CRUD.Controllers
 {
-    public class CategoryController : Controller
+    public class ApplicationTypeController : Controller
     {
 
         private readonly ApplicationDbContext _db;
-        public CategoryController(ApplicationDbContext db)
+        public ApplicationTypeController(ApplicationDbContext db)
         {
             _db = db;
         }
@@ -20,7 +20,7 @@ namespace ASP.NET_CRUD.Controllers
 
         public IActionResult Index()
         {
-            IEnumerable<Category> objList = _db.Categories;
+            IEnumerable<ApplicationType> objList = _db.ApplicationType;
             return View(objList);
         }
 
@@ -36,9 +36,9 @@ namespace ASP.NET_CRUD.Controllers
         // POST - CREATE
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(Category obj)
+        public IActionResult Create(ApplicationType obj)
         {
-            _db.Categories.Add(obj);
+            _db.ApplicationType.Add(obj);
             _db.SaveChanges();
             return RedirectToAction("Index");
         }

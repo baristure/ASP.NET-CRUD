@@ -1,12 +1,12 @@
-﻿@model IEnumerable<ASP.NET_CRUD.Models.Category>
+﻿@model IEnumerable<ASP.NET_CRUD.Models.ApplicationType>
 
 <div class="container p-3">
     <div class="row pt-4">
         <div class="col-6">
-            <h2 class="text-primary">Category List</h2>
+            <h2 class="text-primary">Application Type List</h2>
         </div>
         <div class="col-6 text-right">
-            <a asp-controller="Category" asp-action="Create" class="btn btn-primary">Create New Category</a>
+            <a asp-controller="ApplicationType" asp-action="Create" class="btn btn-primary">Create New Application Type</a>
         
         </div>
     </div>
@@ -18,8 +18,7 @@
         <table class="table table-bordered table-striped" style="width:100%">
             <thead>
                 <tr>
-                    <th>Category Name</th>
-                    <th>Display Order</th>
+                    <th> Name</th>
                     <th></th>
                 </tr>
             </thead>
@@ -28,8 +27,6 @@
                 {
                 <tr>
                     <td width="50%">@obj.Name</td>
-                    <td width="30%">@obj.DisplayOrder</td>
-                    <td></td>
                 </tr>
                 }
             </tbody>
@@ -37,6 +34,6 @@
     }
     else
     {
-        <p>No Category Exist:(</p>
+<p>No Application Type Exist:(</p>
     }
 </div>

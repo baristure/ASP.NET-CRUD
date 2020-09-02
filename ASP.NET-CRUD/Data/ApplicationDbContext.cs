@@ -14,5 +14,6 @@ namespace ASP.NET_CRUD.Data
                
         }
         public DbSet<Category> Categories { get; set; }
+        public DbSet<ApplicationType> ApplicationType { get; set; }
     }
 }
