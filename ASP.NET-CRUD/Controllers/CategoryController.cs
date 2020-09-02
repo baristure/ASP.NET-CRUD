@@ -29,7 +29,6 @@ namespace ASP.NET_CRUD.Controllers
             return View();
         }
 
-
         // POST - CREATE
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -46,6 +45,23 @@ namespace ASP.NET_CRUD.Controllers
         }
 
 
+
+        // GET - EDIT
+        public IActionResult Edit(int? id)
+        {
+            if(id==null || id == 0)
+            {
+                return NotFound();
+            }
+            var obj = _db.Categories.Find(id);
+            if (obj == null)
+            {
+                return NotFound();
+            }
+
+            return View(obj);
+        }
+
         // POST - EDIT
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -61,10 +77,12 @@ namespace ASP.NET_CRUD.Controllers
 
         }
 
-        // GET - EDIt
-        public IActionResult Edit(int? id)
+
+
+        // GET - DELETE
+        public IActionResult Delete(int? id)
         {
-            if(id==null || id == 0)
+            if (id == null || id == 0)
             {
                 return NotFound();
             }
@@ -75,6 +93,23 @@ namespace ASP.NET_CRUD.Controllers
             }
 
             return View(obj);
+        }
+
+        // POST - DELETE
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult DeletePost(int? id)
+        {
+            var obj = _db.Categories.Find(id);
+            if (obj == null)
+            {
+                return NotFound();
+            }
+            _db.Categories.Remove(obj);
+                _db.SaveChanges();
+                return RedirectToAction("Index");
+            
+
         }
     }
 }
